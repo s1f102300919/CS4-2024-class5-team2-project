@@ -20,4 +20,5 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('timeline/',include("timeline.urls")),
+    path('record/', include("record.urls"))
 ]

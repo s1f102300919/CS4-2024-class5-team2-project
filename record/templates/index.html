@@ -13,5 +13,16 @@
         <li>{{subject}}</li>
     {% endfor %}
     </ul>
+
+    <h3>コメント</h3>
+    <form action = "{% url 'form' %}" method="POST" name = "form">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="content">
+        </div>
+        <div>
+            <input type="submit" value="記録する">
+        </div>
+    </form>
 </body>
 </html>

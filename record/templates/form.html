@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/test.css' %}">
+    <script src="{% static 'js/test.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    {% if result %}
+        <p>あなたのコメント: {{result}}</p>
+    {% else %}
+        <p>no-comment</p>
+    {% endif %}
+        <div>
+            <button>
+                <a href="{% url 'top' %}">戻る</a>
+            </button>
+        </div>
+    </form>
+</body>
+</html>

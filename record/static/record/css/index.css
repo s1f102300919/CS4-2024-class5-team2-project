@@ -1,0 +1,39 @@
+body {
+    color: #333;
+}
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 3rem;
+}
+  
+#container {
+    background-color: #f8f3ff;
+    width: 540px;
+    border-radius: 1rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+  
+#time {
+    color: #626161;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(207, 139, 255, 0.25);
+    margin: .5rem;
+}
+  
+#buttons {
+    font-size: 3rem;
+    text-align: center;
+}
+  
+#start, #stop, #reset {
+    color: #626161;
+    border: #626161 2px solid;
+    font-size: 1.5rem;
+    border-radius: .3rem;
+    box-shadow: 0 0 20px rgba(112, 113, 114, 0.25);
+}

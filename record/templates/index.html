@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'record/css/index.css' %}">
 </head>
 <body>
     <h1>学習記録</h1>
@@ -13,6 +15,15 @@
         <li>{{subject}}</li>
     {% endfor %}
     </ul>
+
+    <div id="container">
+        <div id="time">00:00:00</div>
+        <div id="buttons">
+          <input id="start" type="button" value="start">
+          <input id="stop" type="button" value="stop">
+          <input id="reset" type="button" value="reset">
+        </div>
+    </div>
 
     <h3>コメント</h3>
     <form action = "{% url 'form' %}" method="POST" name = "form">
@@ -24,5 +35,6 @@
             <input type="submit" value="記録する">
         </div>
     </form>
+    <script src="{% static 'record/js/index.js' %}"></script>
 </body>
 </html>

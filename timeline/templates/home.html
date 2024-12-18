@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    {% load static %}
-    <link href="{% static 'timeline/css/home.css' %}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
     <title>Timeline</title>
   </head>
   <body>
@@ -12,5 +14,6 @@
     <button class="topButton">タイムライン</button>
     <button class="topButton">やること</button>
     <button class="topButton">カウントダウン</button>
+    <img src="{% static 'img/Player_mod_128.png' %}">
   </body>
 </html>

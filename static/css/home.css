@@ -4,11 +4,12 @@ body{
 
 .post{
     background-color: aquamarine;
+    padding: 10px;
 }
 
 .photo{
-    width: 450px;
-    height: 300px;
+    width: 100px;
+    height: 100px;
 }
 
 .topbutton{
@@ -19,7 +20,7 @@ body{
     margin-left: 3.7px;
 }
 
-#title{
+#app_name{
     background-color: yellow;
     padding-left: 15px;
 }

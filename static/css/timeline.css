@@ -1,0 +1,15 @@
+.like-button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .like-button:hover {
+    color: #ff6347; /* ボタンがホバーされたときの色 */
+  }
+  
+  .like-count {
+    font-weight: bold;
+  }
+  

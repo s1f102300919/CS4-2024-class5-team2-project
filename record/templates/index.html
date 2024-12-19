@@ -8,33 +8,44 @@
     <link rel="stylesheet" href="{% static 'record/css/index.css' %}">
 </head>
 <body>
-    <h1>学習記録</h1>
+    <p>App_name</p>
+    <button class="topButton">学習記録</button>
+    <button class="topButton">タイムライン</button>
+    <button class="topButton">やること</button>
+    <button class="topButton">カウントダウン</button>
+    <img src="{% static 'img/Player_mod_128.png' %}">
+
 <!-- <p>{{subject1}}</p> -->
-    <ul>
-    {% for subject in subject_list %}
-        <li>{{subject}}</li>
-    {% endfor %}
-    </ul>
-
-    <div id="container">
-        <div id="time">00:00:00</div>
-        <div id="buttons">
-          <input id="start" type="button" value="start">
-          <input id="stop" type="button" value="stop">
-          <input id="reset" type="button" value="reset">
+    <div class="record-wrap">
+        <div class="subject-box">
+            <p>科目を選択</p>
+            <ul>
+            {% for subject in subject_list %}
+                <li>{{subject}}</li>
+            {% endfor %}
+            </ul>
         </div>
-    </div>
-
-    <h3>コメント</h3>
-    <form action = "{% url 'form' %}" method="POST" name = "form">
-        {% csrf_token %}
-        <div>
-            <input type="text" name="content">
+        <div id="stopwatch-container">
+            <div id="time">00:00:00</div>
+            <div id="buttons">
+              <input id="start" type="button" value="start">
+              <input id="stop" type="button" value="stop">
+              <input id="reset" type="button" value="reset">
+            </div>
         </div>
-        <div>
-            <input type="submit" value="記録する">
+        <div class="comment-box">
+            <h3>コメント</h3>
+            <form action = "{% url 'form' %}" method="POST" name = "form">
+                {% csrf_token %}
+                <div>
+                    <input type="text" name="content">
+                </div>
+                <div>
+                    <input type="submit" value="記録する">
+                </div>
+            </form>
         </div>
-    </form>
+    </div>    
     <script src="{% static 'record/js/index.js' %}"></script>
 </body>
 </html>

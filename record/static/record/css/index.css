@@ -1,15 +1,74 @@
 body {
+    margin: 0;
+    padding: 0;
     color: #333;
+    background-color:aliceblue
 }
 h1 {
     text-align: center;
     font-size: 2rem;
     margin: 3rem;
 }
-  
-#container {
+
+.record-wrap {
+    display: flex;
+    margin: 20px;
+}
+
+@media (max-width:768px) {
+    .record-wrap {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        width: 100%;
+    }
+}
+
+/*
+header
+*/
+/*
+.header-container {
+    border: #222 solid 2px;
+}
+
+.header-list {
+    text-align: center;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+}
+
+.header-item {
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    border: #222 solid 2px;
+}
+*/
+
+/*
+subject
+*/
+.subject-box {
+    width: 30%;
+    margin: 0 auto;
+    border: #222 solid 2px;
+}
+
+@media (max-width:768px){
+    .subject-box {
+        width: 80%;
+    }
+}
+
+/*
+stopwatch
+*/
+#stopwatch-container {
     background-color: #f8f3ff;
-    width: 540px;
+    width: 30%;
     border-radius: 1rem;
     margin: 0 auto;
     padding: 1.5rem;
@@ -36,4 +95,27 @@ h1 {
     font-size: 1.5rem;
     border-radius: .3rem;
     box-shadow: 0 0 20px rgba(112, 113, 114, 0.25);
+}
+
+@media (max-width:768px){
+    #stopwatch-container {
+        width: 80%;
+    }
+}
+
+/*
+comment
+*/
+.comment-box {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border: #222 solid 2px;    
+}
+
+@media (max-width:768px){
+    .comment-box {
+        width: 80%;
+        margin: 0 auto;
+    }
 }

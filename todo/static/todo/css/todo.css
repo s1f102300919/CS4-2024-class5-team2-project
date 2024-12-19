@@ -1,3 +1,7 @@
+body{
+  background-color: aliceblue;
+}
+
 h2{
   text-align: center;
 }
@@ -14,10 +18,10 @@ h2{
 }
 
 #addButton {
-  background-color: lightblue; /* ボタンの背景色を水色に変更 */
+  background-color: rgb(229, 179, 252); /* ボタンの背景色を水色に変更 */
   font-size: 18px; /* フォントサイズ */
-  color: white; /* テキストの色を白に変更 */
-  padding: 10px 20px; /* ボタンの内側余白を調整 */
+  color: white; /* テキストの色をs白に変更 */
+  padding: 5px 20px; /* ボタンの内側余白を調整 */
   border: none; /* ボタンの枠線を削除 */
   border-radius: 50px; /* 丸みを持たせて楕円形にする */
   cursor: pointer; /* ホバー時のカーソルをポインタに変更 */

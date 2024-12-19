@@ -13,12 +13,12 @@ h1 {
 .record-wrap {
     display: flex;
     margin: 20px;
+    text-align: center;
 }
 
 @media (max-width:768px) {
     .record-wrap {
         flex-direction: column;
-        text-align: center;
         gap: 15px;
         width: 100%;
     }
@@ -52,7 +52,7 @@ header
 subject
 */
 .subject-box {
-    width: 30%;
+    width: 25%;
     margin: 0 auto;
     border: #222 solid 2px;
 }
@@ -68,7 +68,8 @@ stopwatch
 */
 #stopwatch-container {
     background-color: #f8f3ff;
-    width: 30%;
+    width: 40%;
+    height: 100%;
     border-radius: 1rem;
     margin: 0 auto;
     padding: 1.5rem;
@@ -107,15 +108,84 @@ stopwatch
 comment
 */
 .comment-box {
-    width: 30%;
+    background-color: lightgray;
+    width: 25%;
+    height: auto;
     margin: 10px;
-    padding: 10px;
-    border: #222 solid 2px;    
+    padding: 20px;
+    border: #222 solid 2px;
+    overflow: hidden; /* 子要素がはみ出さないようにする */
+    box-sizing: border-box; /* パディングを含めてサイズを指定 */
 }
+
+.comment-title {
+    background-color: rgb(234, 232, 232);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+    text-align: center;
+    border: #222 solid 1px;
+    padding: 5px 40px;
+    width: fit-content;
+}
+.comment-form-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.comment-input {
+    background-color: rgb(255, 255, 255);
+    width: 100%; /* 幅を100%に変更 */
+    height: 220px;
+    padding: 14px 10px;
+    border: 1px solid #222;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: left; /* テキストを左揃え */
+    resize: none;
+    overflow-y: auto; /* 縦スクロールを有効化 */
+}
+/* placeholderの位置指定 */
+.comment-input::placeholder {
+    text-align: left; /* プレースホルダーの位置を左揃え */
+    color: #aaa; /* プレースホルダーの色を薄くする */
+    position: absolute;
+    top: 10px; /* 上寄せ */
+    left: 10px; /* 左寄せ */
+    line-height: 1.5; /* 行間を調整 */
+    pointer-events: none; /* クリックを無効化 */
+}
+.comment-submit-container {
+    text-align: center;
+}
+.comment-submit {
+    background-color: #333;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.comment-submit:hover {
+    background-color: #61d1a6; /* ホバー時に色が少し変わる */
+}
+
 
 @media (max-width:768px){
     .comment-box {
         width: 80%;
         margin: 0 auto;
+    }
+    .comment-title {
+        font-size: 1.2rem;
+    }
+    .comment-input {
+        height: 150px;
+    }
+    .comment-submit {
+        font-size: 1.5rem;
     }
 }

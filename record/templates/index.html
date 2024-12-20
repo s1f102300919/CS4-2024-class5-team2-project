@@ -18,12 +18,40 @@
 <!-- <p>{{subject1}}</p> -->
     <div class="record-wrap">
         <div class="subject-box">
-            <p>科目を選択</p>
-            <ul>
-            {% for subject in subject_list %}
-                <li>{{subject}}</li>
-            {% endfor %}
-            </ul>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <!-- プルダウンリスト -->
+                <select class="subject-select" name="languages" id="lang">
+                    <option class="select-list" value="select">科目を選択</option>
+                    {% for subject in subject_list %}
+                    <option class="select-list" value="{{ subject }}">{{subject}}</option>
+                    {% endfor %}
+                </select>
+                <div class="add-area">
+                    <input type="text" name="new_subject" placeholder="新しい科目を登録">
+                    <input type="submit" value="登録">
+                </div>
+                {% if error_message %}
+                <div class="error">{{ error_message }}</div>
+                {% endif %}
+            </form>
+            <div class="delete-area">
+                <details class="accordion-003">
+                    <summary>登録した科目を削除する</summary>
+                        <!-- 科目一覧と削除ボタン -->
+                        {% for subject in subject_list %}
+                        <p class="delete-item">
+                            {{ subject }}
+                            <form method="POST" action="{% url 'delete_subject' %}" class="delete-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="subject_name" value="{{ subject }}">
+                                <button type="button" class="delete-button">削除</button>
+                                <hr>
+                            </form>
+                        </p>
+                        {% endfor %}
+                </details>
+            </div>
         </div>
         <div id="stopwatch-container">
             <div id="time">00:00:00</div>
@@ -37,7 +65,12 @@
             <h3 class="comment-title">コメント</h3>
             <form class="comment-form-area" action = "{% url 'form' %}" method="POST" name = "form">
                 {% csrf_token %}
-                    <textarea class="comment-input" type="text" name="content" placeholder="(例: 完全に理解できた！)"></textarea>
+                <textarea class="comment-input" type="text" name="content" placeholder="(例: 完全に理解できた！)"></textarea>
+                <!-- 隠しフィールド: 選択した科目 -->
+                <input type="hidden" name="selected_subject" id="selected-subject" value="">
+                <!-- 隠しフィールド: 計測時間 -->
+                <input type="hidden" name="elapsed_time" id="elapsed-time" value="">
+
                 <div class="comment-submit-container">
                     <input class="comment-submit" type="submit" value="記録する">
                 </div>

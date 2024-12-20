@@ -9,11 +9,16 @@
     <title>Document</title>
 </head>
 <body>
-    {% if result %}
-        <p>あなたのコメント: {{result}}</p>
+    <h1>テストページです</h1>
+    {% if content %}
+        <p>あなたのコメント: {{ content }}</p>
     {% else %}
-        <p>no-comment</p>
+        <p>コメント: no-comment</p>
     {% endif %}
+
+    <p>選択した科目: {{ selected_subject }}</p>
+    <p>計測した時間: {{ elapsed_time }}</p>
+
         <div>
             <button>
                 <a href="{% url 'top' %}">戻る</a>

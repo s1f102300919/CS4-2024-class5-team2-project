@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'record/css/index.css' %}">
 </head>
 <body>
-    <p>App_name</p>
-    <button class="topButton">学習記録</button>
-    <button class="topButton">タイムライン</button>
-    <button class="topButton">やること</button>
-    <button class="topButton">カウントダウン</button>
-    <img src="{% static 'img/Player_mod_128.png' %}">
+    <header class="header-area">
+        <h1 id="app_name">アプリ名</h1>
+        <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
+    </header>
+    <div class="tab-container">
+        <button class="topbutton page_record">学習記録</button>
+        <button class="topbutton">タイムライン</button>
+        <button class="topbutton">やること</button>
+        <button class="topbutton">カウントダウン</button>
+    </div>
 
 <!-- <p>{{subject1}}</p> -->
     <div class="record-wrap">
@@ -36,7 +41,7 @@
                 {% endif %}
             </form>
             <div class="delete-area">
-                <details class="accordion-003">
+                <details class="accordion-003 inner">
                     <summary>登録した科目を削除する</summary>
                         <!-- 科目一覧と削除ボタン -->
                         {% for subject in subject_list %}

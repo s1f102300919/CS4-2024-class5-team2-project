@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color:aliceblue
+    background-color:aliceblue;
 }
 h1 {
     text-align: center;
@@ -21,32 +21,58 @@ h1 {
         flex-direction: column;
         gap: 15px;
         width: 100%;
+        margin: 20px auto;
     }
 }
 
 /*
 header
 */
-/*
-.header-container {
-    border: #222 solid 2px;
+.header-area {
+    height: 100px;
+    border: #222 solid 2px; 
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;
 }
-
-.header-list {
-    text-align: center;
-    justify-content: center;
-    list-style: none;
+#app_name {
+    padding: 10px;
+    margin: 0;
+    font-size: 60px;
+    background-color: #333;
+    color: white;
+}
+.user_icon {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    /*
+    border: #222 solid 1px;
+    border-radius: 90%;
+    background-color: white;
+    */
+}
+.tab-container {
+    border: #222 solid 2px;
     display: flex;
 }
-
-.header-item {
+.topbutton {
+    width: 25%;
+    font-size: 22px;
     padding: 10px;
-    margin: 10px;
-    font-weight: bold;
-    font-size: 18px;
-    border: #222 solid 2px;
+    margin: 0;
 }
-*/
+.page_record {
+    background-color: gray;
+    color: white;
+}
+
+@media (max-width:768px) {
+    .topbutton {
+        font-size: 18px;
+    }
+}
 
 /*
 subject
@@ -129,6 +155,13 @@ hr {
 }
 
 
+@media(min-width:768px) {
+    .inner {
+        height: 200px;
+        overflow-y: scroll;
+    }    
+}
+
 .accordion-003 {
     max-width: 500px;
 }
@@ -194,7 +227,7 @@ stopwatch
     border: rgb(205, 205, 205) 1px solid;
     box-shadow: #aaa 2px 2px 3px;
     border-radius: 1rem;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 1.5rem;
 }
   

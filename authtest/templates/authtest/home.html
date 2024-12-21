@@ -1,20 +1,18 @@
 <html lang="ja"><head><meta charset="utf-8"></head>
   <body>
-    <h1>Home</h1>
+    <h1>ログイン</h1>
 
     {% if user.is_authenticated %}
-    <p>Hi {{ user.username }}!</p>
+    <p>{{ user.username }}さん！こんにちは</p>
     <form method="post" action="{% url 'logout' %}">
       {% csrf_token %}
-      <button type="submit">logout</button>
+      <button type="submit">ログアウト</button>
     </form>
-    {% else %}
-    <p>You are not logged in.</p>
-    <p><a href="{% url 'login' %}">login</a></p>
-    {% endif %}
-
     <hr>
-    <p><a href="{% url 'priv' %}">private</a></p>
-    <p><a href="{% url 'pub' %}">public</a></p>
+    <p><a href="{% url 'priv' %}">アプリへ移動</a></p>
+    {% else %}
+    <p>ログインしてください</p>
+    <p><a href="{% url 'login' %}">ログイン</a></p>
+    {% endif %}
 </body>
 </html>

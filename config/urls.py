@@ -22,6 +22,6 @@ urlpatterns = [
     path('timeline/',include("timeline.urls")),
     path('record/', include("record.urls")),
     path('todo/', include("todo.urls")),
-    path('app01/',include('authtest.urls')),
+    path("",include('authtest.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
 ]

@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color:aliceblue;
+    background-color:#fffffe;
 }
 h1 {
     text-align: center;
@@ -30,23 +30,24 @@ header
 */
 .header-area {
     height: 100px;
-    border: #222 solid 2px; 
+    border: #78b9fb solid 2px; 
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #333;
+    background-color: #78b9fb;
 }
 #app_name {
     padding: 10px;
-    margin: 0;
+    margin: auto 0;
     font-size: 60px;
-    background-color: #333;
+    background-color: #78b9fb;
     color: white;
 }
 .user_icon {
     object-fit: cover;
     width: 100px;
     height: 100px;
+    margin: auto 0;
     /*
     border: #222 solid 1px;
     border-radius: 90%;
@@ -54,7 +55,9 @@ header
     */
 }
 .tab-container {
-    border: #222 solid 2px;
+    border: rgb(205, 205, 205) 1px solid;
+    box-shadow: #aaa 2px 2px 3px;
+    border-radius: 0.5rem;
     display: flex;
 }
 .topbutton {
@@ -62,15 +65,26 @@ header
     font-size: 22px;
     padding: 10px;
     margin: 0;
+    font-weight: bold;
 }
 .page_record {
-    background-color: gray;
+    background-color: #272343;
     color: white;
 }
 
 @media (max-width:768px) {
+    .header-area {
+        height: 50px;
+    }
+    #app_name {
+        font-size: 24px;
+    }
+    .user_icon {
+        width: 50px;
+        height: 50px;
+    }
     .topbutton {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -80,7 +94,7 @@ subject
 .subject-box {
     background-color: whitesmoke;
     width: 25%;
-    margin: 0 auto;
+    margin: 10px auto;
     border: rgb(205, 205, 205) 1px solid;
     box-shadow: #aaa 2px 2px 3px;
     border-radius: 1rem;
@@ -96,7 +110,7 @@ subject
     margin-top: 10px;
     font-size: 24px;
     outline: 0;
-    background: #2d364f;
+    background: #bae8e8;
     color: #fff;
     border: 1px solid #222;
     border-radius: 0.5rem;
@@ -221,7 +235,7 @@ hr {
 stopwatch
 */
 #stopwatch-container {
-    background-color: #f8f3ff;
+    background-color: #e3f6f5;
     width: 40%;
     height: 100%;
     border: rgb(205, 205, 205) 1px solid;
@@ -233,11 +247,12 @@ stopwatch
   
 #time {
     color: #626161;
+    background-color: whitesmoke;
     font-size: 3rem;
     text-align: center;
     padding: 1rem;
     border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(207, 139, 255, 0.25);
+    box-shadow: 0 0 20px #bae8e8;
     margin: .5rem;
 }
   
@@ -247,6 +262,7 @@ stopwatch
 }
   
 #start, #stop, #reset {
+    background-color: #ffd803;
     color: #626161;
     border: #626161 2px solid;
     font-size: 1.5rem;
@@ -256,7 +272,7 @@ stopwatch
 }
 
 #start:hover, #stop:hover, #reset:hover {
-    background-color: #333;
+    background-color: #e1c265;
     color: white;
 }
 
@@ -270,7 +286,7 @@ stopwatch
 comment
 */
 .comment-box {
-    background-color: rgb(206, 239, 255);
+    background-color: whitesmoke;
     width: 25%;
     height: auto;
     margin: 10px;
@@ -283,13 +299,11 @@ comment
 }
 
 .comment-title {
-    background-color: rgb(234, 232, 232);
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: bold;
-    margin: 0;
-    color: #333;
+    margin: 0 auto;
+    color: #222;
     text-align: center;
-    border: #222 solid 1px;
     padding: 5px 40px;
     width: fit-content;
 }
@@ -324,12 +338,12 @@ comment
     text-align: center;
 }
 .comment-submit {
-    background-color: #2d364f;
+    background-color: #bae8e8;
     color: white;
     width: 100%;
     padding: 10px;
     font-size: 1.5rem;
-    border: 1px solid #333;
+    border: 2px solid gray;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -345,7 +359,7 @@ comment
         margin: 0 auto;
     }
     .comment-title {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     .comment-input {
         height: 150px;

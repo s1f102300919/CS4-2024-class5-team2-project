@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
         path("",views.top,name="top"),
-        path("account", views.topRedirect, name="topRedirect"),
+        path("accounts", views.topRedirect, name="topRedirect"),
 ]

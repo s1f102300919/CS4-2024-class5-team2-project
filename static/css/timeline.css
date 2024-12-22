@@ -296,3 +296,9 @@ stopwatch
         width: 80%;
     }
 }
+
+.timeline{
+  background-color: #666;
+  width: 60%;
+  margin:auto
+}

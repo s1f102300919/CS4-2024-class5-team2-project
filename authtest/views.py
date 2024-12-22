@@ -7,7 +7,7 @@ def home(request):
 
 @login_required
 def private_page(request):
-    return render(request, 'authtest/private.html', {})
+    return render(request, 'record/index.html', {})
 
 def public_page(request):
     return render(request, 'authtest/public.html', {})

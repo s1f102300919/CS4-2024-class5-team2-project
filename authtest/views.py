@@ -9,5 +9,6 @@ def home(request):
 def private_page(request):
     return render(request, 'record/index.html', {})
 
+#今は使っていない
 def public_page(request):
     return render(request, 'authtest/public.html', {})

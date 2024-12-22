@@ -14,8 +14,9 @@
         <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
     </header>
     <div class="tab-container">
-        <button class="topbutton page_record">学習記録</button>
-        <button class="topbutton">タイムライン</button>
+        <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
+        <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
+        <a href="{% url 'timeline'%}" class="topbutton">タイムライン</a>
         <button class="topbutton">やること</button>
         <button class="topbutton">カウントダウン</button>
     </div>

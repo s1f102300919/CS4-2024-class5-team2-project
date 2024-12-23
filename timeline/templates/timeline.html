@@ -26,10 +26,15 @@
         <button class="topbutton">カウントダウン</button>
     </div>
     <div class="timeline">
-          <h3>科目名</h3>
-          <p>コメント</p>
-          <p>時間</p>
-          <p>いいね:<button class="like-button">👍</button><span class="like-count">0</span></p>
+      <div class="timeline-header">
+      <img class="user_icon" src="{% static 'img/Snowman_128.png' %}">
+      <div class="subject"><h3>科目名:CS概論Ⅳ</h3></div>
+      <h3>時間:[1:21:38]
+      <button class="like-button">♡</button><span class="like-count">0</span>
+      </div>
+      <div id="comment">
+        <p>コメント:</p>
+      </div>
     </div>
   </body>
 </html>

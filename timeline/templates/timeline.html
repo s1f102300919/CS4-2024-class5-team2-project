@@ -26,14 +26,16 @@
         <button class="topbutton">やること</button>
         <button class="topbutton">カウントダウン</button>
     </div>
+
+    {% for post in posts %}
     <div class="timeline">
       <div class="timeline-header">
         <img class="user_icon" src="{% static 'img/Snowman_128.png' %}">
-        {% for post in posts %}
         <div class="subject"><h3>科目名:{{post.subject}}</h3></div>
           <h3>時間:[{{post.time}}]
           <button class="like-button">♡</button><span class="like-count">0</span>
         </div>
+
       <div id="comment">
         <p>コメント:{{post.comment}}</p>
       </div>
@@ -42,8 +44,8 @@
         {% csrf_token %}
         <button type="submit">削除</button>
     </form>
-      {% endfor %}
     </div>
+    {% endfor %}
 
       <a href="{% url 'add_post' %}" class="add-button">
         <img class="plus_icon" src="{% static 'img/plus_icon.png' %}">

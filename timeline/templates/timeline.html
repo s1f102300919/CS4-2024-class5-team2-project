@@ -28,13 +28,23 @@
     <div class="timeline">
       <div class="timeline-header">
       <img class="user_icon" src="{% static 'img/Snowman_128.png' %}">
-      <div class="subject"><h3>科目名:CS概論Ⅳ</h3></div>
-      <h3>時間:[1:21:38]
+      {% for post in posts %}
+      <div class="subject"><h3>科目名:{{post.subject}}</h3></div>
+      <h3>時間:[{{post.time}}]
       <button class="like-button">♡</button><span class="like-count">0</span>
       </div>
       <div id="comment">
-        <p>コメント:</p>
+        <p>コメント:{{post.comment}}</p>
       </div>
+
+      <form method="POST" action="{% url 'confirm_delete' post.id %}">
+        {% csrf_token %}
+        <button type="submit">削除</button>
+    </form>
+      {% endfor %}
+    </div>
+    <div class="plus">
+      <a href="{% url 'add_post' %}" class="add-button">+</a>
     </div>
   </body>
 </html>

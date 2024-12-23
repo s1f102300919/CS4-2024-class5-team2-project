@@ -303,8 +303,6 @@ stopwatch
     border-radius: 30%; /* アイコンを丸くする */
     background-color: #000;
   }
-  .subject{
-  }
   
   .comment {
     margin-top: 10px; /* コメントを上の要素から少し離す */
@@ -325,3 +323,14 @@ stopwatch
   .like-count {
     font-weight: bold;
   }
+
+  .plus_icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: #fff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}

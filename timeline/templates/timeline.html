@@ -18,6 +18,7 @@
         <h1 id="app_name">アプリ名</h1>
         <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
     </header>
+
     <div class="tab-container">
         <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
         <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
@@ -27,12 +28,12 @@
     </div>
     <div class="timeline">
       <div class="timeline-header">
-      <img class="user_icon" src="{% static 'img/Snowman_128.png' %}">
-      {% for post in posts %}
-      <div class="subject"><h3>科目名:{{post.subject}}</h3></div>
-      <h3>時間:[{{post.time}}]
-      <button class="like-button">♡</button><span class="like-count">0</span>
-      </div>
+        <img class="user_icon" src="{% static 'img/Snowman_128.png' %}">
+        {% for post in posts %}
+        <div class="subject"><h3>科目名:{{post.subject}}</h3></div>
+          <h3>時間:[{{post.time}}]
+          <button class="like-button">♡</button><span class="like-count">0</span>
+        </div>
       <div id="comment">
         <p>コメント:{{post.comment}}</p>
       </div>
@@ -43,8 +44,9 @@
     </form>
       {% endfor %}
     </div>
-    <div class="plus">
-      <a href="{% url 'add_post' %}" class="add-button">+</a>
-    </div>
+
+      <a href="{% url 'add_post' %}" class="add-button">
+        <img class="plus_icon" src="{% static 'img/plus_icon.png' %}">
+      </a>
   </body>
 </html>

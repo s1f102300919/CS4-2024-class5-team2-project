@@ -36,4 +36,4 @@ def form(request):
             "elapsed_time": elapsed_time,
         }
 
-    return render(request, "form.html", data)
+    return render(request, "record/form.html", data)

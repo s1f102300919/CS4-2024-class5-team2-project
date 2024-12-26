@@ -1,7 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
 class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     subject = models.CharField(max_length=100)
     time = models.CharField(max_length=5)  # 時間を文字列として保存（例："1:20"）
     comment = models.TextField()

@@ -19,7 +19,9 @@ def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
             return redirect('timeline')
         else:
             print(form.errors)  # エラー内容を確認

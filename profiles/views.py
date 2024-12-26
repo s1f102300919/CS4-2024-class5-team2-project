@@ -5,13 +5,11 @@ from .forms import UserProfileForm
 
 @login_required
 def view_profile(request):
-    # ログインしているユーザーのプロフィールを取得
     user = request.user
-
     try:
         profile = UserProfile.objects.get(user=user)
     except UserProfile.DoesNotExist:
-        profile = None  # プロフィールがない場合
+        profile = None
 
     return render(request, 'profile/profile.html', {'user': user, 'profile': profile})
 

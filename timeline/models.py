@@ -8,6 +8,7 @@ class Post(models.Model):
     time = models.CharField(max_length=5)  # 時間を文字列として保存（例："1:20"）
     comment = models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
+    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
     def __str__(self):
         return self.subject

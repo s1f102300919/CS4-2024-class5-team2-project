@@ -15,7 +15,10 @@
   <body>
     <header class="header-area">
         <h1 id="app_name">アプリ名</h1>
-        <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
+
+        <a href="{%url 'view_profile'%}">
+          <img src="{{ profile.avatar.url }}" alt="User Avatar" class="user-icon">
+        </a>
     </header>
 
     <div class="tab-container">

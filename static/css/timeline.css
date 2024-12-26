@@ -43,17 +43,7 @@ header
     background-color: #78b9fb;
     color: white;
 }
-.user_icon {
-    object-fit: cover;
-    width: 100px;
-    height: 100px;
-    margin: auto 0;
-    /*
-    border: #222 solid 1px;
-    border-radius: 90%;
-    background-color: white;
-    */
-}
+
 .tab-container {
     border: rgb(205, 205, 205) 1px solid;
     box-shadow: #aaa 2px 2px 3px;
@@ -334,4 +324,11 @@ stopwatch
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+}
+
+.Icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 30%; /* アイコンを丸くする */
+    background-color: #000;
 }

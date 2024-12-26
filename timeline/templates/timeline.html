@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
-    <script src="{% static 'js/home.js' %}"></script>
     <script src="{% static 'js/timeline.js' %}"></script>
     <title>Timeline</title>
   </head>
@@ -46,7 +45,6 @@
     </form>
     </div>
     {% endfor %}
-
       <a href="{% url 'add_post' %}" class="add-button">
         <img class="plus_icon" src="{% static 'img/plus_icon.png' %}">
       </a>

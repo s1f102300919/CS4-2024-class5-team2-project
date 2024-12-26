@@ -7,7 +7,9 @@ def record(request):
     return render(request, 'index.html')
 
 def timeline(request):
-    posts = Post.objects.all().order_by('-created_at')  # 最新順に表示
+    print("Timeline view is being called")  # ビューが呼ばれたかを確認
+    posts = Post.objects.all().order_by('-created_at')
+    print(posts)  # データが取得できているか確認
     return render(request, 'timeline.html', {'posts': posts})
 
 def todo(request):

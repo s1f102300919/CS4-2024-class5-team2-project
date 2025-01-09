@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="{% static 'static/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'todo/css/todo.css' %}">
+</head>
+<body>
+    <header class="header-area">
+        <h1 id="app_name">アプリ名</h1>
+        <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
+    </header>
+    <div class="tab-container">
+        <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
+        <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
+        <a href="{% url 'timeline'%}" class="topbutton">タイムライン</a>
+        <button class="topbutton">やること</button>
+        <button class="topbutton">カウントダウン</button>
+    </div>
+
+    <h2>タスクの削除</h2>
+    <form action="" method="POST">{% csrf_token %}
+        <p>{{task}}</p>
+        <input type="submit" value="delete">
+    </form>
+</body>
+</html>

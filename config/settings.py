@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'countdown'
     'record',
     'timeline',
     'todo',
@@ -57,8 +58,8 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / 'templates'],  # プロジェクト全体のテンプレート用
+        'APP_DIRS': True,  # アプリケーションごとのテンプレートディレクトリを有効化
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -69,6 +70,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 

@@ -22,4 +22,5 @@ urlpatterns = [
     path('timeline/',include("timeline.urls")),
     path('record/', include("record.urls")),
     path('todo/', include("todo.urls")),
+    path('', include('countdown.urls')),  # アプリケーションのurls.pyを含む
 ]

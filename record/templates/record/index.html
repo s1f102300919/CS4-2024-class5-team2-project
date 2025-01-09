@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'record/css/index.css' %}">
+</head>
+<body>
+    <header class="header-area">
+        <h1 id="app_name">アプリ名</h1>
+        <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
+    </header>
+    <div class="tab-container">
+        <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
+        <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
+        <a href="{% url 'timeline'%}" class="topbutton">タイムライン</a>
+        <button class="topbutton">やること</button>
+        <button class="topbutton">カウントダウン</button>
+    </div>
+
+<!-- <p>{{subject1}}</p> -->
+    <div class="record-wrap">
+        <div class="subject-box">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <!-- プルダウンリスト -->
+                <select class="subject-select" name="languages" id="lang">
+                    <option class="select-list" value="select">科目を選択</option>
+                    {% for subject in subject_list %}
+                    <option class="select-list" value="{{ subject }}">{{subject}}</option>
+                    {% endfor %}
+                </select>
+                <div class="add-area">
+                    <input type="text" name="new_subject" placeholder="新しい科目を登録">
+                    <input type="submit" value="登録">
+                </div>
+                {% if error_message %}
+                <div class="error">{{ error_message }}</div>
+                {% endif %}
+            </form>
+            <div class="delete-area">
+                <details class="accordion-003 inner">
+                    <summary>登録した科目を削除する</summary>
+                        <!-- 科目一覧と削除ボタン -->
+                        {% for subject in subject_list %}
+                        <p class="delete-item">
+                            {{ subject }}
+                            <form method="POST" action="{% url 'delete_subject' %}" class="delete-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="subject_name" value="{{ subject }}">
+                                <button type="button" class="delete-button">削除</button>
+                                <hr>
+                            </form>
+                        </p>
+                        {% endfor %}
+                </details>
+            </div>
+        </div>
+        <div id="stopwatch-container">
+            <div id="time">00:00:00</div>
+            <div id="buttons">
+              <input id="start" type="button" value="start">
+              <input id="stop" type="button" value="stop">
+              <input id="reset" type="button" value="reset">
+            </div>
+        </div>
+        <div class="comment-box">
+            <h3 class="comment-title">コメント</h3>
+            <form class="comment-form-area" action = "{% url 'form' %}" method="POST" name = "form">
+                {% csrf_token %}
+                <textarea class="comment-input" type="text" name="content" placeholder="(例: 完全に理解できた！)"></textarea>
+                <!-- 隠しフィールド: 選択した科目 -->
+                <input type="hidden" name="selected_subject" id="selected-subject" value="">
+                <!-- 隠しフィールド: 計測時間 -->
+                <input type="hidden" name="elapsed_time" id="elapsed-time" value="">
+
+                <div class="comment-submit-container">
+                    <input class="comment-submit" type="submit" value="記録する">
+                </div>
+            </form>
+        </div>
+    </div>    
+    <script src="{% static 'record/js/index.js' %}"></script>
+</body>
+</html>

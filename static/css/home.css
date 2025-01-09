@@ -4,22 +4,33 @@ body{
 
 .post{
     background-color: aquamarine;
+    padding: 10px;
 }
 
 .photo{
-    width: 450px;
-    height: 300px;
+    width: 100px;
+    height: 100px;
 }
 
 .topbutton{
+    display: inline-block;
     font-size: 30px;
     padding-left: 70px; 
     padding-right: 70px; 
     flex-grow: 1;
     margin-left: 3.7px;
+    background-color: aquamarine;
+    cursor: pointer; 
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid black;
 }
 
-#title{
+#app_name{
     background-color: yellow;
     padding-left: 15px;
+}
+
+.topbutton:first-child {
+    border-left: 2px solid black; /* 最初のボタンだけ左枠線を有効にする */
 }

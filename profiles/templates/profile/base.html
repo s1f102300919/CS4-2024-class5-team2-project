@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}アプリ名{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>アプリ名</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">ホーム</a></li>
+                <li><a href="{% url 'profile' %}">プロフィール</a></li>
+                <li><a href="{% url 'logout' %}">ログアウト</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}  <!-- 各ページ固有のコンテンツをここに埋め込む -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 アプリ名</p>
+    </footer>
+</body>
+</html>

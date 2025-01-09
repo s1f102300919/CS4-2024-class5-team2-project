@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>削除確認</title>
+</head>
+<body>
+    <h1>本当に削除してもよろしいですか？</h1>
+    <p>科目名: {{ post.subject }}</p>
+    <p>時間: {{ post.time }}</p>
+    <p>コメント: {{ post.comment }}</p>
+
+    <form method="POST" action="{%url 'delete_post' post.id%}">
+        {% csrf_token %}
+        <button type="submit">削除する</button>
+    </form>
+
+    <a href="{% url 'timeline' %}">キャンセル</a>
+</body>
+</html>

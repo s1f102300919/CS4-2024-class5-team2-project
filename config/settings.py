@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'countdown'
+    'countdown',
     'record',
     'timeline',
     'todo',

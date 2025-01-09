@@ -37,3 +37,4 @@ def form(request):
         }
 
     return render(request, "record/form.html", data)
+    

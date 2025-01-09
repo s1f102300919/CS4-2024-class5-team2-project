@@ -84,5 +84,17 @@
         </div>
     </div>    
     <script src="{% static 'record/js/index.js' %}"></script>
+    <!-- subject_listの内容をデバッグ表示 -->
+<div>
+    <h2>Debug: Subject List</h2>
+    <ul>
+        {% for subject in subject_list %}
+            <li>{{ subject }}</li>
+        {% empty %}
+            <li>No subjects available</li>
+        {% endfor %}
+    </ul>
+</div>
+
 </body>
 </html>

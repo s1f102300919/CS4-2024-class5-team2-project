@@ -44,15 +44,19 @@ h1 {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
+    color: black;
   }
   
-  .like-button:hover {
-    color: #ff6347; /* ボタンがホバーされたときの色 */
+  .like-button.liked{
+    color: rgb(255, 20, 59);
+    font-size: 25px;
   }
+
   
   .like-count {
     font-weight: bold;
+    font-size: 20px;
   }
 
   .plus_icon {
@@ -77,4 +81,12 @@ h1 {
         width: 100%;
         margin-top: 130px;
     }
+}
+
+.like-section{
+  display: flex;
+}
+
+.timeline-bottom{
+  display: flex;
 }

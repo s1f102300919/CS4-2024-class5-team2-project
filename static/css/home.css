@@ -37,12 +37,11 @@ body {
     color: white;
     display: flex;
     padding-top: 4x;
-    align-items: center; 
+    align-items: center;
 }
 
 .header-area {
     height: 80px; /* ヘッダー全体の高さを明確に指定 */
-    border: #78b9fb solid 2px;
     justify-content: space-between;
     background-color: yellow;
     position: fixed;
@@ -52,8 +51,7 @@ body {
 }
 
 .tab-container {
-    border: rgb(205, 205, 205) 1px solid;
-    box-shadow: #aaa 2px 2px 3px;
+
     border-radius: 0.5rem;
     display: flex;
 }

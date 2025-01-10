@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import TodoDetail, TodoList, TodoCreate, TodoUpdate, TodoDelete
+from . import views
 
 urlpatterns = [
-    path("", TodoList.as_view(), name="list"),
-    path("detail/<int:pk>", TodoDetail.as_view(), name="detail"),
-    path("create/", TodoCreate.as_view(), name="create"),
-     path("update/<int:pk>", TodoUpdate.as_view(), name="update"),
-     path("delete/<int:pk>", TodoDelete.as_view(), name="delete"),
+    path('', views.index, name='index'),
+    path('info', views.info, name='info'),
+    path('create', views.create, name='create'),
+    path('update/<int:num>', views.update, name='update'),
+    path('delete/<int:num>', views.delete, name='delete'),
 ]

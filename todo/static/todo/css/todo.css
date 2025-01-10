@@ -1,135 +1,20 @@
-body{
-  background-color: aliceblue;
+h2 {
+  color: blue;
+  border-bottom: double 6px #87CEFA;
 }
 
-h2{
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table th,
+table td {
+  padding: 10px 0;
   text-align: center;
 }
 
-.listbox {
-  max-width: 400px;
-  margin: 10% auto;
-}
-
-#mylist {
-  list-style: disc;
-  font-weight: bold;
-  margin-bottom: 3%;
-}
-
-label{
-  font-weight: bold;
-}
-
-#submit {
-  background-color: rgb(73, 184, 239); /* ボタンの背景色を水色に変更 */
-  font-size: 15px; /* フォントサイズ */
-  color: white; /* テキストの色をs白に変更 */
-  padding: 3px 20px; /* ボタンの内側余白を調整 */
-  border: none; /* ボタンの枠線を削除 */
-  border-radius: 30px; /* 丸みを持たせて楕円形にする */
-  cursor: pointer; /* ホバー時のカーソルをポインタに変更 */
-  font-weight: bold; /* 太字 */
-  margin-top: 5px;
-}
-
-
-:root { font-size: 16px; }
-main {
-  width: 480px;
-  margin: 0 auto;
-  padding: 30px 30px 50px;
-  box-shadow: 0 0 10px 0 lightgray;
-}
-input, select { margin: 0.5rem 1rem 0.5rem 0; }
-input[type='number'] { width: 30px; }
-button#submit, button#priority, button#remove {
-  padding: 5px 10px;
-  margin-top: 1rem;
-  background-color: royalblue;
-  color: white;
-  border-style: none;
-}
-button#priority { background-color: olivedrab; }
-button#remove { background-color: firebrick; }
-table {
-  margin-top: 2rem;
-  border: solid 2px lightgray;
-  border-collapse: collapse;
-}
-th, td {
-  border: solid 1px lightgray;
-  border-collapse: collapse;
-}
-th {
-  background-color: beige;
-  padding: 0 0.5rem 0;
-}
-th#todoLabel { width: 200px; }
-th#dateLabel { width: 100px; }
-td { text-align: center; }
-td input[type='checkbox'] { margin: 0; }
-
-
-/*
-header
-*/
-.header-area {
-  height: 100px;
-  border: #78b9fb solid 2px; 
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: #78b9fb;
-}
-#app_name {
-  padding: 10px;
-  margin: auto 0;
-  font-size: 60px;
-  background-color: #78b9fb;
-  color: white;
-}
-.user_icon {
-  object-fit: cover;
-  width: 100px;
-  height: 100px;
-  margin: auto 0;
-  /*
-  border: #222 solid 1px;
-  border-radius: 90%;
-  background-color: white;
-  */
-}
-.tab-container {
-  border: rgb(205, 205, 205) 1px solid;
-  box-shadow: #aaa 2px 2px 3px;
-  border-radius: 0.5rem;
-  display: flex;
-}
-.topbutton {
-  width: 25%;
-  font-size: 22px;
-  padding: 10px;
-  margin: 0;
-  font-weight: bold;
-}
-.page_record {
-  background-color: #272343;
-  color: white;
-}
-
-@media (max-width:768px) {
-  .header-area {
-      height: 50px;
-  }
-  #app_name {
-      font-size: 24px;
-  }
-  .user_icon {
-      width: 50px;
-      height: 50px;
-  }
-  .topbutton {
-      font-size: 16px;
-  }
+table tr:nth-child(even) {
+  background-color: #87CEFA
 }

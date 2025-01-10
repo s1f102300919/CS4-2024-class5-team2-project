@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
-    <link rel="stylesheet" href="{% static 'static/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'todo/css/todo.css' %}">
 </head>
 <body>
@@ -21,27 +21,22 @@
     </div>
 
     <h2>ToDoリスト</h2>
+    <h3>やること登録</h3>
+    <form action="{% url 'input' %}" method="POST" name="form">
+        {% csrf_token %}
+        <div>
+            <label>やること</label>
+            <input type="text" name="todo">
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
 
-    <p><a href="{% url 'create' %}">新規作成</a></p>
-
-    <table>
-        <thead>
-            <tr>
-            <th scope="col">title</th>
-            <th scope="col">deadline</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for task in tasks %}
-        <tr>
-            <td>{{ task.title }}</td>
-            <td>{{ task.deadline }}</td>
-            <td><a href="{% url 'detail' task.pk %}">詳細</a></td>
-            <td><a href="{% url 'update' task.pk %}">編集</a></td>
-            <td><a href="{% url 'delete' task.pk %}">削除</a></td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <h3>やること一覧</h3>
+    {% for todo in input_result %}
+        <h4>{{todo.id}}: {{todo.list}}: {{todo.time}}</h4>
+        <p>{{todo.content}}</p>
+    {% endfor %}
 </body>
 </html>

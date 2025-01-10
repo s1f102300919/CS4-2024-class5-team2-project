@@ -1,3 +1,21 @@
+body {
+    background-color: aquamarine;
+    margin: 0; /* コンテンツ全体の余白をリセット */
+    margin-left: 20px;
+}
+
+h2{
+    font-size: 30px;
+    padding-top: 0;
+}
+
 .user-icon{
     background-color: black;
+}
+
+.profile-info{
+    display: flex;
+}
+.user_info{
+    margin-left: 20px;
 }

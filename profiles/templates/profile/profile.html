@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
     <title>profile</title>
   </head>
@@ -21,11 +21,13 @@
         <img src="{% static 'img/Player_mod_128.png' %}" alt="Default Avatar" class="user-icon">
       {% endif %}
     </div>
-    <div class="username">
-      <p>ユーザー名: {{ user.username }}</p>
-    </div>
-    <div class="bio">
-      <p>自己紹介: {{ profile.bio }}</p>
+    <div class="user_info">
+      <div class="username">
+        <p>ユーザー名: {{ user.username }}</p>
+      </div>
+      <div class="bio">
+        <p>自己紹介: {{ profile.bio }}</p>
+      </div>
     </div>
   </div>
 

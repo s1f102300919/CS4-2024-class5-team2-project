@@ -1,29 +1,20 @@
-body{
-  background-color: aliceblue;
+h2 {
+  color: blue;
+  border-bottom: double 6px #87CEFA;
 }
 
-h2{
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table th,
+table td {
+  padding: 10px 0;
   text-align: center;
 }
 
-.listbox {
-  max-width: 400px;
-  margin: 10% auto;
-}
-
-#mylist {
-  list-style: disc;
-  font-weight: bold;
-  margin-bottom: 3%;
-}
-
-#addButton {
-  background-color: rgb(229, 179, 252); /* ボタンの背景色を水色に変更 */
-  font-size: 18px; /* フォントサイズ */
-  color: white; /* テキストの色をs白に変更 */
-  padding: 5px 20px; /* ボタンの内側余白を調整 */
-  border: none; /* ボタンの枠線を削除 */
-  border-radius: 50px; /* 丸みを持たせて楕円形にする */
-  cursor: pointer; /* ホバー時のカーソルをポインタに変更 */
-  font-weight: bold; /* 太字 */
+table tr:nth-child(even) {
+  background-color: #87CEFA
 }

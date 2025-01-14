@@ -1,30 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="ja">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'todo/css/todo.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/todo.js' %}"></script>
+    <title>todo</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'todo/css/todo.css' %}">
-  <script src="{% static 'todo/js/todo.js' %}"></script>
-  <title>ToDo</title>
-</head>
-
-<body>
-  <p>App_name</p>
-    <button class="topButton">学習記録</button>
-    <button class="topButton">タイムライン</button>
-    <button class="topButton">やること</button>
-    <button class="topButton">カウントダウン</button>
-    <img src="{% static 'img/Player_mod_128.png' %}">
-  <h2>ToDoリスト</h2>
-  <div class="listbox">
-    <div id="mylist">
-      <input type="checkbox" id="checkbox1"><label for="checkbox1">CS概論4</label><br>
-      <input type="checkbox" id="checkbox2"><label for="checkbox2">数学FormA</label><br>
-      <input type="checkbox" id="checkbox3"><label for="checkbox3">CS演習4</label>
+  <body>
+    <header class="header-area">
+        <h1 id="app_name">アプリ名</h1>
+        <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
+    </header>
+    <div class="tab-container">
+        <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
+        <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
+        <a href="{% url 'timeline'%}" class="topbutton">タイムライン</a>
+        <a href="{% url 'todo'%}" class="topbutton">やること</a>
+        <button class="topbutton">カウントダウン</button>
     </div>
-    <button id="addButton">追加</button>
-  </div>
-</body>
-</html>
+    <h2>やることリスト</h2>
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task }}</li>
+        {% endfor %}
+    </ul>
+  </body>
+</html>  

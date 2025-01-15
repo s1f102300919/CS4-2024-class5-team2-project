@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'record/css/test.css' %}">
     <script src="{% static 'record/js/test.js' %}"></script>
-    <title>Document</title>
+    <title>学習記録</title>
 </head>
 <body>
-    <h1>テストページです</h1>
-    {% if content %}
-        <p>あなたのコメント: {{ content }}</p>
-    {% else %}
-        <p>コメント: no-comment</p>
-    {% endif %}
-
-    <p>選択した科目: {{ selected_subject }}</p>
-    <p>計測した時間: {{ elapsed_time }}</p>
-
-        <div>
-            <button>
-                <a href="{% url 'top' %}">戻る</a>
-            </button>
+    <h1>学習記録</h1>
+    <div class="timeline">
+        {% for record in records %}
+        <div class="timeline-item">
+            <p>登録日時: {{ record.created_at|date:"Y年m月d日 H:i" }}</p>
+            <p>科目: {{ record.subject }}</p>
+            <p>コメント: {{ record.comment }}</p>
+            <p>時間: {{ record.elapsed_time }}</p>
         </div>
-    </form>
+        {% endfor %}
+    </div>
+    <div class="back-button">
+        <button>
+            <a href="{% url 'priv' %}">戻る</a>
+        </button>
+    </div>
 </body>
 </html>

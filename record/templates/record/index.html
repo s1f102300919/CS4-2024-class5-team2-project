@@ -10,16 +10,21 @@
 </head>
 <body>
     <header class="header-area">
-        <h1 id="app_name">アプリ名</h1>
-        <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
-    </header>
-    <div class="tab-container">
-        <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
-        <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
-        <a href="{% url 'timeline'%}" class="topbutton">タイムライン</a>
-        <button class="topbutton">やること</button>
-        <button class="topbutton">カウントダウン</button>
-    </div>
+        <div class="top_head">
+          <h1 id="app_name">アプリ名</h1>
+          <a href="{%url 'view_profile'%}">
+            <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="Icon">
+          </a>
+        </div>
+  
+          <div class="tab-container">
+            <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
+            <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
+            <a href="{% url 'timeline'%}" class="topbutton">タイムライン</a>
+            <button class="topbutton">やること</button>
+            <button class="topbutton">カウントダウン</button>
+        </div>
+      </header>
 
 <!-- <p>{{subject1}}</p> -->
     <div class="record-wrap">
@@ -69,20 +74,23 @@
         </div>
         <div class="comment-box">
             <h3 class="comment-title">コメント</h3>
-            <form class="comment-form-area" action = "{% url 'form' %}" method="POST" name = "form">
+            <form class="comment-form-area" action="{% url 'form' %}" method="POST" name="form">
                 {% csrf_token %}
                 <textarea class="comment-input" type="text" name="content" placeholder="(例: 完全に理解できた！)"></textarea>
-                <!-- 隠しフィールド: 選択した科目 -->
                 <input type="hidden" name="selected_subject" id="selected-subject" value="">
-                <!-- 隠しフィールド: 計測時間 -->
                 <input type="hidden" name="elapsed_time" id="elapsed-time" value="">
-
+            
                 <div class="comment-submit-container">
                     <input class="comment-submit" type="submit" value="記録する">
                 </div>
             </form>
+            
         </div>
     </div>    
     <script src="{% static 'record/js/index.js' %}"></script>
+    <!-- subject_listの内容をデバッグ表示 -->
+<div>
+</div>
+
 </body>
 </html>

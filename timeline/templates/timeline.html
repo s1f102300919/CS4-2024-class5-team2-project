@@ -4,32 +4,79 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
-    <script src="{% static 'js/home.js' %}"></script>
     <script src="{% static 'js/timeline.js' %}"></script>
     <title>Timeline</title>
   </head>
 
   <body>
     <header class="header-area">
+      <div class="top_head">
         <h1 id="app_name">アプリ名</h1>
-        <img class="user_icon" src="{% static 'img/Player_mod_128.png' %}">
-    </header>
-    <div class="tab-container">
-        <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
-        <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
-        <a href="{% url 'timeline'%}" class="topbutton">タイムライン</a>
+        <a href="{% url 'view_profile' %}">
+          <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="Icon">
+        </a>
+      </div>
+
+      <div class="tab-container">
+        <a href="{% url 'priv' %}" class="topbutton">学習記録</a>
+        <a href="{% url 'timeline' %}" class="topbutton">タイムライン</a>
         <button class="topbutton">やること</button>
         <button class="topbutton">カウントダウン</button>
+      </div>
+    </header>
+    
+    <div class="timeline-contents">
+      {% for post in posts %}
+      <div class="timeline">
+        <div class="timeline-header">
+          {% if post.user.userprofile.avatar %}
+          <img class="user_icon" src="{{ post.user.userprofile.avatar.url }}" alt="User Avatar">
+          {% else %}
+          <img class="user_icon" src="{% static 'img/Snowman_128.png' %}" alt="Default Avatar">
+          {% endif %}
+          <div class="subject">
+            <div class="subject">
+              <h3>
+                タイトル: {{ post.subject }}<br>
+                作成日: {{ post.created_at }}
+              </h3>
+            </div>
+            
+        </div>
+          <div class="like-section">
+            <form method="POST" action="{% url 'like_post' post.id %}">
+              {% csrf_token %}
+              {% if user in post.likes.all %}
+              <button type="submit" class="like-button liked">♥</button>
+              {% else %}
+              <button type="submit" class="like-button">♥</button>
+              {% endif %}
+            </form>
+            <span class="like-count">{{ post.likes.count }}</span>
+          </div>
+        </div>
+
+        <div id="comment">
+          <p>投稿者: {{ post.user.username }}</p>
+          <p>コメント: {{ post.comment }}</p>
+        </div>
+
+        <form method="POST" action="{% url 'confirm_delete' post.id %}">
+          {% csrf_token %}
+          <button type="submit">削除</button>
+        </form>
+      </div>
+      {% endfor %}
     </div>
-    <div class="timeline">
-          <h3>科目名</h3>
-          <p>コメント</p>
-          <p>時間</p>
-          <p>いいね:<button class="like-button">👍</button><span class="like-count">0</span></p>
-    </div>
+
+    <a href="{% url 'timeline' %}" class="update-button">
+      <img class="update_icon" src="{% static 'img/update_icon.png' %}">
+    </a>
+
+    <a href="{% url 'add_post' %}" class="add-button">
+      <img class="plus_icon" src="{% static 'img/plus_icon.png' %}">
+    </a>
   </body>
 </html>

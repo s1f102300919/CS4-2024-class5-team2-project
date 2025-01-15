@@ -1,7 +1,8 @@
-body{
-    background-color:aliceblue
+body {
+    background-color: aliceblue;
+    margin: 0; /* コンテンツ全体の余白をリセット */
+    padding-top: 50px; /* ヘッダーの高さ分の余白を追加 */
 }
-
 .post{
     background-color: aquamarine;
     padding: 10px;
@@ -14,23 +15,76 @@ body{
 
 .topbutton{
     display: inline-block;
-    font-size: 30px;
-    padding-left: 70px; 
-    padding-right: 70px; 
     flex-grow: 1;
-    margin-left: 3.7px;
     background-color: aquamarine;
     cursor: pointer; 
     text-align: center;
     text-decoration: none;
     border: 2px solid black;
+    width: 100%;
+    font-size: 22px;
+    padding: 10px;
+    margin: 0;
+    font-weight: bold;
 }
 
-#app_name{
-    background-color: yellow;
+
+
+#app_name {
     padding-left: 15px;
+    margin: auto 0;
+    font-size: 50px;
+    color: white;
+    display: flex;
+    padding-top: 4x;
+    align-items: center;
 }
 
-.topbutton:first-child {
-    border-left: 2px solid black; /* 最初のボタンだけ左枠線を有効にする */
+.header-area {
+    height: 80px; /* ヘッダー全体の高さを明確に指定 */
+    justify-content: space-between;
+    background-color: yellow;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* ヘッダーが他の要素よりも上に表示されるようにする */
+}
+
+.tab-container {
+
+    border-radius: 0.5rem;
+    display: flex;
+}
+
+.Icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+.top_head {
+    display: flex;
+    margin: 0;
+    align-items: center; /* 縦方向のセンタリング */
+}
+
+@media (max-width:768px) {
+    .header-area {
+        height: 60px;
+    }
+    #app_name {
+        font-size: 35px;
+    }
+    .Icon {
+        width: 50px;
+        height: 50px;
+    }
+    .topbutton {
+        margin-top: 10px;
+        font-size: 16px;
+    }
 }

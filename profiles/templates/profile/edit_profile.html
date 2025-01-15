@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <title>profile</title>
+  </head>
+  <body>
+    {% block content %}
+    <h2>{{ user.username }}さんのプロフィールを編集</h2>
+    
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">保存</button>
+    </form>
+    <a href="{% url 'view_profile' %}">戻る</a>
+    {% endblock %}
+  </body>
+</html>

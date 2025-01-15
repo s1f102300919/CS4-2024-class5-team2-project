@@ -1,0 +1,208 @@
+/* 全体のリセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body */
+body {
+    background-color: aliceblue;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding-top: 50px; /* ヘッダーの高さ分の余白 */
+}
+
+/* コンテナ */
+.container {
+    position: relative;
+    text-align: center;
+    background-color: #f0f8ff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    z-index: 1;
+}
+
+/* オーバーレイ */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://source.unsplash.com/1920x1080/?nature') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* 見出し */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+/* 入力フォームセクション */
+.input-section {
+    margin-bottom: 30px;
+}
+
+input {
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 70%;
+    max-width: 300px;
+    transition: background-color 0.3s ease;
+}
+
+/* 入力フィールドのフォーカス時 */
+input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 開始ボタン */
+button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: aquamarine;
+    color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 200px;
+}
+
+/* ボタンホバー時 */
+button:hover {
+    background-color: #00b5ad;
+}
+
+/* カウントダウン */
+.countdown {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* タイマー */
+#timer {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: transform 0.3s ease;
+}
+
+/* ちらつきアニメーション */
+#timer.blink {
+    animation: blinkAnimation 1s step-start infinite;
+}
+
+@keyframes blinkAnimation {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ヘッダー */
+.header-area {
+    height: 80px;
+    background-color: yellow;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#app_name {
+    font-size: 50px;
+    color: white;
+    display: flex;
+    padding-top: 4px;
+    align-items: center;
+}
+
+.topbutton {
+    display: inline-block;
+    background-color: aquamarine;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid black;
+    font-size: 22px;
+    padding: 10px;
+    margin: 0;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* モバイル用ヘッダー調整 */
+    }
+
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .countdown {
+        font-size: 2rem;
+    }
+
+    #timer {
+        font-size: 2rem;
+    }
+
+    .header-area {
+        height: 60px;
+    }
+
+    #app_name {
+        font-size: 35px;
+    }
+
+    .topbutton {
+        font-size: 16px;
+    }
+}
+
+  
+  

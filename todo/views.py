@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView, UpdateView, DeleteView
 from django.views import View
 from django.urls import reverse_lazy
 from django.forms import DateInput
@@ -54,3 +54,7 @@ class TaskUpdate(UpdateView):
         #3.due_dateフィールドのウィジェットを上書き
         form.fields['due_date'].widget = DateInput(attrs={'type': 'date'})
         return form
+    
+class TaskDelete(DeleteView):
+    model = Task
+    success_url = reverse_lazy('task_list')

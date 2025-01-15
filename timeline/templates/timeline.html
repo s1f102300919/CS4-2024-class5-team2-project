@@ -26,6 +26,7 @@
         <button class="topbutton">カウントダウン</button>
       </div>
     </header>
+    
     <div class="timeline-contents">
       {% for post in posts %}
       <div class="timeline">
@@ -36,11 +37,14 @@
           <img class="user_icon" src="{% static 'img/Snowman_128.png' %}" alt="Default Avatar">
           {% endif %}
           <div class="subject">
-            <h3>科目名: {{ post.subject }}</h3>
-          </div>
-          <h3>
-            時間: [{{ post.time }}]
-          </h3>
+            <div class="subject">
+              <h3>
+                タイトル: {{ post.subject }}<br>
+                作成日: {{ post.created_at }}
+              </h3>
+            </div>
+            
+        </div>
           <div class="like-section">
             <form method="POST" action="{% url 'like_post' post.id %}">
               {% csrf_token %}

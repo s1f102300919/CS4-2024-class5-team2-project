@@ -40,14 +40,16 @@ h1 {
   }
   
 
-.like-button {
+  .like-button {
     border: none;
     background-color: transparent;
     cursor: pointer;
     font-size: 25px;
     color: black;
+    position: relative;
+    top:12px;
   }
-  
+
   .like-button.liked{
     color: rgb(255, 20, 59);
     font-size: 25px;
@@ -57,6 +59,8 @@ h1 {
   .like-count {
     font-weight: bold;
     font-size: 20px;
+    position: relative;
+    top:12px;
   }
 
   .plus_icon {

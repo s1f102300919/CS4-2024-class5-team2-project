@@ -143,3 +143,12 @@ LOGOUT_REDIRECT_URL = 'home'
 
 MEDIA_URL = '/media/'  # メディアファイルのURLパス
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # メディアファイルの保存場所
+
+ASGI_APPLICATION = "timeline.asgi.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
+

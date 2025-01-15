@@ -30,6 +30,7 @@
           <td colspan="4">タスクがありません</td>
         </tr>
       {% endfor %}
+      {% include 'todo/task_form.html' with form=form %}
     </tbody>
   </table>
 {% endblock %}

@@ -28,6 +28,7 @@ urlpatterns = [
     path("",include('authtest.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
     path('profile/', include('profiles.urls')),
+    path('timer/', include('countdown.urls')),  # countdownアプリのURLをインクルード
 ]
 
 if settings.DEBUG:

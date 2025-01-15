@@ -1,5 +1,12 @@
+# countdown/views.py
+# countdown/views.py
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# カウントダウンページビュー
-def countdown(request):
-    return render(request, 'countdown.html')
+def save_note(request):
+    # 保存処理のコード
+    return HttpResponse("Note saved!")
+
+
+
+

@@ -1,4 +1,3 @@
-
 //完了、未完了ボタンを押したときの動き
 $(document).ready(function() {
     $('.toggle-completed').click(function() {

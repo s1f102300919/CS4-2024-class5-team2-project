@@ -1,5 +1,6 @@
 .completed{
     background-color: rgb(146, 214, 216);
+    text-decoration: line-through;
 }
  
 .flex{

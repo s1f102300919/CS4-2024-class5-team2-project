@@ -20,7 +20,6 @@ h1 {
 @media (max-width:768px) {
     .record-wrap {
         flex-direction: column;
-        gap: 15px;
         width: 100%;
         margin-top: 120px;
     }
@@ -28,6 +27,7 @@ h1 {
 
 .record-bottom-wrap {
     display: flex;
+    margin: 0;
 }
 
 @media (max-width:768px) {
@@ -57,10 +57,10 @@ subject
 }
 .subject-select {
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 0;
     font-size: 24px;
     outline: 0;
-    background: #bae8e8;
+    background: #67c3c3;
     color: #fff;
     border: 1px solid #222;
     border-radius: 0.5rem;
@@ -119,65 +119,13 @@ hr {
 }
 
 
-@media(min-width:768px) {
-    .inner {
-        height: 200px;
-        overflow-y: scroll;
-    }    
-}
-
-.accordion-003 {
-    max-width: 500px;
-}
-
-.accordion-003 summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    padding: 1em 2em;
-    color: #333333;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.accordion-003 summary::-webkit-details-marker {
-    display: none;
-}
-
-.accordion-003 summary::after {
-    transform: translateY(-25%) rotate(45deg);
-    width: 7px;
-    height: 7px;
-    margin-left: 10px;
-    border-bottom: 3px solid #333333b3;
-    border-right: 3px solid #333333b3;
-    content: '';
-    transition: transform .3s;
-}
-
-.accordion-003[open] summary::after {
-    transform: rotate(225deg);
-}
-
-.accordion-003 p {
-    transform: translateY(-10px);
-    opacity: 0;
-    margin: 0;
-    padding: .3em 2em 1.5em;
-    color: #333333;
-    transition: transform .5s, opacity .5s;
-}
-
-.accordion-003[open] p {
-    transform: none;
-    opacity: 1;
-}
-
 
 @media (max-width:768px){
     .subject-box {
         width: 80%;
+    }
+    .subject-select {
+        margin-top: 30px;
     }
 }
 
@@ -229,6 +177,7 @@ stopwatch
 @media (max-width:768px){
     #stopwatch-container {
         width: 80%;
+        margin-bottom: 30px;
     }
 }
 
@@ -237,9 +186,10 @@ comment
 */
 .comment-box {
     background-color: whitesmoke;
-    width: 25%;
+    width: 35%;
     height: auto;
-    margin: 10px;
+    margin: 10px 60px;
+    margin-bottom: 30px;
     padding: 20px;
     border: rgb(205, 205, 205) 1px solid;
     box-shadow: #aaa 2px 2px 3px;
@@ -307,6 +257,7 @@ comment
     .comment-box {
         width: 80%;
         margin: 0 auto;
+        margin-bottom: 30px;
     }
     .comment-title {
         font-size: 1.5rem;

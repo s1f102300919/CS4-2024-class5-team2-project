@@ -16,16 +16,17 @@ body {
 .topbutton{
     display: inline-block;
     flex-grow: 1;
-    background-color: aquamarine;
+    background-color: black;
     cursor: pointer; 
     text-align: center;
     text-decoration: none;
-    border: 2px solid black;
+    border: 2px solid rgb(115, 119, 121);
     width: 100%;
     font-size: 22px;
     padding: 10px;
     margin: 0;
     font-weight: bold;
+    color: aliceblue;
 }
 
 
@@ -43,7 +44,7 @@ body {
 .header-area {
     height: 80px; /* ヘッダー全体の高さを明確に指定 */
     justify-content: space-between;
-    background-color: yellow;
+    background-color: rgb(36, 39, 147);
     position: fixed;
     top: 0;
     width: 100%;

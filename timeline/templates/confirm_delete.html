@@ -8,6 +8,23 @@
     <title>削除確認</title>
 </head>
 <body>
+    <header class="header-area">
+        <div class="top_head">
+          <img class="app_icon" src="{% static 'img/App_icon.png' %}"><h1 id="app_name">StudyNET</h1>
+          <a href="{% url 'view_profile' %}">
+            <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="Icon">
+          </a>
+        </div>
+  
+        <div class="tab-container">
+          <a href="{% url 'priv' %}" class="topbutton">学習記録</a>
+          <a href="{% url 'timeline' %}" class="topbutton">タイムライン</a>
+          <button class="topbutton">やること</button>
+          <button class="topbutton">カウントダウン</button>
+        </div>
+      </header>
+    
+    <div class="timeline-info-contents">
     <h1>本当に削除してもよろしいですか？</h1>
     <div class="post_info">
     <p>科目名: {{ post.subject }}</p>
@@ -19,6 +36,7 @@
     </form>
 
     <a href="{% url 'timeline' %}">キャンセル</a>
+    </div>
     </div>
 </body>
 </html>

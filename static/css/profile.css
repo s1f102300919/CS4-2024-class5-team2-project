@@ -1,7 +1,5 @@
 body {
-    background-color: aquamarine;
     margin: 0; /* コンテンツ全体の余白をリセット */
-    margin-left: 20px;
 }
 
 h2{
@@ -11,13 +9,29 @@ h2{
 
 .user-icon{
     background-color: black;
-    height: 100px;
+    height: 200px;
     width: auto;
+
 }
 
 .profile-info{
     display: flex;
+    position: relative;
+    top: 10px;
+    left: 10px;
 }
 .user_info{
-    margin-left: 20px;
+    margin-left: 10px;
+}
+
+.edit{
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
+
+.profile-edit{
+    position: relative;
+    top: 20px;
+    left: 10px;
 }

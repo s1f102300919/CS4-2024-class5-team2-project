@@ -113,3 +113,9 @@ h1{
     position: relative;
     left: 15px;
 }
+
+.timeline-info-contents{
+    position: relative;
+    top: 120px;
+}
+

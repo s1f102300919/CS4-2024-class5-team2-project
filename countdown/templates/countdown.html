@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>シンプルなデザイン</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>カウントダウンタイマー</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
   <div class="container">
-    <h1>Webページのデモ</h1>
-    <p>ボタンをクリックするとアニメーションが発生します！</p>
-    <button id="animateButton">アニメーション開始</button>
-    <div id="animatedBox"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>カウントダウンタイマー</h1>
+
+      <div class="input-section">
+        <label for="deadline">過大の期限を入力 (例: 2025-01-31 23:59:59):</label>
+        <input type="datetime-local" id="deadline" name="deadline">
+        <button id="startTimer">開始</button>
+      </div>
+
+      <div id="countdownDisplay" class="countdown">
+        <p id="timer">カウントダウンタイマーを開始してください。</p>
+      </div>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

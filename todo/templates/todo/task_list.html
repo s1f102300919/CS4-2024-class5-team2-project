@@ -1,0 +1,35 @@
+{% extends 'todo/base.html' %}
+ 
+{% block title %}Task List{% endblock %}
+ 
+{% block content %}
+  <h1>タスク一覧</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>タスク</th>
+        <th>期日</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 2.タスクをループ処理で表示 -->
+      {% for task in tasks %}
+        <tr>
+          <td class="task_title">{{ task.title }}</td>
+          <td class="task_due_date">{{ task.due_date | date:"Y年m月d日" }}</td>
+          <td style="display:flex">
+            <button class="btn btn-primary btn-sm toggle-completed">未完了にする</button>
+            <a href="#" class="btn btn-secondary">編集</a>
+            <button type="submit" class="btn btn-danger">削除</button>
+          </td>
+        </tr>
+      <!-- 3.データが存在しない場合 -->
+      {% empty %}
+        <tr>
+          <td colspan="4">タスクがありません</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from .models import Task
+from .forms import TaskForm
 
 # Create your views here.
 def record(request):
@@ -18,3 +19,10 @@ class TaskList(ListView):
     context_object_name = 'tasks'
     #データの並び順を指定
     ordering = ['-created_at', 'due_date']
+
+    def get_context_data(self, **kwargs):
+        #1コンテキストの取得
+        context = super().get_context_data(**kwargs)
+        #2コンテキストのフォームをセット
+        context['form'] = TaskForm()
+        return context

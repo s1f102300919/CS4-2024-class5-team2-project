@@ -1,0 +1,14 @@
+
+<!-- 1.フォーム送信でViewを起動 -->
+<form method="post" action="{% url 'task_create' %}">
+    <!-- 2.CSRFトークン -->
+    {% csrf_token %}
+    <tr>
+      <!-- 3.フォーム内容を表示 -->
+      <td>{{ form.title }}</td>
+      <td>{{ form.due_date }}</td>
+      <td>
+        <button type="submit" class="btn btn-primary">タスク追加</button>
+      </td>
+    </tr>
+  </form>

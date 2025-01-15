@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views import View
 from .models import Task

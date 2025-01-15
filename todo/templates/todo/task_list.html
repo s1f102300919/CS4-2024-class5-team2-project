@@ -21,7 +21,10 @@
           <td style="display:flex">
             <button class="btn btn-primary btn-sm toggle-completed">未完了にする</button>
             <a href="{% url 'task_edit' task.id %}" class="btn btn-secondary">編集</a>
-            <button type="submit" class="btn btn-danger">削除</button>
+            <form method="post" action="{% url 'task_delete' task.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除してもよろしいですか？')">削除</button>
+            </form>
           </td>
         </tr>
       <!-- 3.データが存在しない場合 -->

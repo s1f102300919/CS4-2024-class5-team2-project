@@ -11,6 +11,8 @@ h2{
 
 .user-icon{
     background-color: black;
+    height: 100px;
+    width: auto;
 }
 
 .profile-info{

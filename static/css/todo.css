@@ -1,3 +1,7 @@
+h2{
+    margin-top: 60px;
+}
+
 .completed{
     background-color: rgb(146, 214, 216);
     text-decoration: line-through;

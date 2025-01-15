@@ -4,26 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'record/css/test.css' %}">
     <script src="{% static 'record/js/test.js' %}"></script>
     <title>学習記録</title>
 </head>
 <body>
-    <h1>学習記録</h1>
-    <div class="timeline">
-        {% for record in records %}
-        <div class="timeline-item">
-            <p>登録日時: {{ record.created_at|date:"Y年m月d日 H:i" }}</p>
-            <p>科目: {{ record.subject }}</p>
-            <p>コメント: {{ record.comment }}</p>
-            <p>時間: {{ record.elapsed_time }}</p>
+    <header class="header-area">
+        <div class="top_head">
+          <img class="app_icon" src="{% static 'img/App_icon.png' %}"><h1 id="app_name">StudyNET</h1>
+          <a href="{% url 'view_profile' %}">
+            <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="Icon">
+          </a>
         </div>
-        {% endfor %}
-    </div>
-    <div class="back-button">
-        <button>
-            <a href="{% url 'priv' %}">戻る</a>
-        </button>
+        <div class="tab-container">
+          <a href="{% url 'priv' %}" class="topbutton">学習記録</a>
+          <a href="{% url 'timeline' %}" class="topbutton">タイムライン</a>
+          <a href="{% url 'task_list' %}" class="topbutton">やること</a>
+          <button class="topbutton">カウントダウン</button>
+        </div>
+    </header>
+
+    <div class="timeline-area">
+        <div class="timeline">
+            {% for record in records %}
+            <div class="timeline-item">
+                <p>登録日時: {{ record.created_at|date:"Y年m月d日 H:i" }}</p>
+                <p>科目: {{ record.subject }}</p>
+                <p>コメント: {{ record.comment }}</p>
+                <p>時間: {{ record.elapsed_time }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="back-button">
+            <button>
+                <a href="{% url 'priv' %}">戻る</a>
+            </button>
+        </div>
     </div>
 </body>
 </html>

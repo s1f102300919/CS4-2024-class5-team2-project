@@ -1,86 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Timer and Notes</title>
-    <style>
-        /* スタイルを追加 */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シンプルなデザイン</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Study Timer and Notes</h1>
-        <div class="timer" id="timer">00:00:00</div>
-        <button id="start-btn">Start</button>
-        <button id="stop-btn" disabled>Stop</button>
-        <button id="reset-btn" disabled>Reset</button>
+  <div class="container">
+    <h1>Webページのデモ</h1>
+    <p>ボタンをクリックするとアニメーションが発生します！</p>
+    <button id="animateButton">アニメーション開始</button>
+    <div id="animatedBox"></div>
+  </div>
 
-        <form method="POST" action="{% url 'save_note' %}" id="note-form">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Enter the subject">
-            </div>
-
-            <div class="form-group">
-                <label for="notes">Notes</label>
-                <textarea id="notes" name="notes" rows="5" placeholder="Write your notes here..."></textarea>
-            </div>
-
-            <input type="hidden" id="time-spent" name="time_spent" value="00:00:00">
-
-            <button type="submit" id="save-btn">Save</button>
-        </form>
-    </div>
-
-    <script>
-        let timerInterval;
-        let elapsedSeconds = 0;
-
-        const timerDisplay = document.getElementById('timer');
-        const startBtn = document.getElementById('start-btn');
-        const stopBtn = document.getElementById('stop-btn');
-        const resetBtn = document.getElementById('reset-btn');
-        const timeSpentInput = document.getElementById('time-spent');
-
-        function formatTime(seconds) {
-            const hrs = Math.floor(seconds / 3600);
-            const mins = Math.floor((seconds % 3600) / 60);
-            const secs = seconds % 60;
-            return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
-
-        function updateTimer() {
-            elapsedSeconds++;
-            const formattedTime = formatTime(elapsedSeconds);
-            timerDisplay.textContent = formattedTime;
-            timeSpentInput.value = formattedTime;
-        }
-
-        startBtn.addEventListener('click', () => {
-            timerInterval = setInterval(updateTimer, 1000);
-            startBtn.disabled = true;
-            stopBtn.disabled = false;
-            resetBtn.disabled = false;
-        });
-
-        stopBtn.addEventListener('click', () => {
-            clearInterval(timerInterval);
-            startBtn.disabled = false;
-            stopBtn.disabled = true;
-        });
-
-        resetBtn.addEventListener('click', () => {
-            clearInterval(timerInterval);
-            elapsedSeconds = 0;
-            const resetTime = formatTime(elapsedSeconds);
-            timerDisplay.textContent = resetTime;
-            timeSpentInput.value = resetTime;
-            startBtn.disabled = false;
-            stopBtn.disabled = true;
-            resetBtn.disabled = true;
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,12 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>Add Post</title>
 </head>
 <body>
     <h1>新しい投稿を追加</h1>
+    <div class="post_info">
     <form method="post" action="{% url 'add_post' %}">
         {% csrf_token %}
         {{ form.as_p }}
@@ -14,5 +17,6 @@
     </form>
     
     <a href="{% url 'timeline' %}">キャンセル</a>
+</div>
 </body>
 </html>

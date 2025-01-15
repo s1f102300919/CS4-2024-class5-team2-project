@@ -74,18 +74,17 @@
         </div>
         <div class="comment-box">
             <h3 class="comment-title">コメント</h3>
-            <form class="comment-form-area" action = "{% url 'form' %}" method="POST" name = "form">
+            <form class="comment-form-area" action="{% url 'form' %}" method="POST" name="form">
                 {% csrf_token %}
                 <textarea class="comment-input" type="text" name="content" placeholder="(例: 完全に理解できた！)"></textarea>
-                <!-- 隠しフィールド: 選択した科目 -->
                 <input type="hidden" name="selected_subject" id="selected-subject" value="">
-                <!-- 隠しフィールド: 計測時間 -->
                 <input type="hidden" name="elapsed_time" id="elapsed-time" value="">
-
+            
                 <div class="comment-submit-container">
                     <input class="comment-submit" type="submit" value="記録する">
                 </div>
             </form>
+            
         </div>
     </div>    
     <script src="{% static 'record/js/index.js' %}"></script>

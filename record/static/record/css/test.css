@@ -1,4 +1,26 @@
-P {
-    background-color: rgba(40, 47, 253, 0.826);
-    color: white;
+body {
+    margin: 0;
+    padding: 0;
 }
+
+h1 {
+    margin: 10px auto;
+    text-align: center;
+}
+.timeline {
+    width: 70%;
+    margin: 10px auto;
+}
+.timeline-item {
+    border: 1px solid black;
+    margin: 10px 0;
+}
+p {
+    margin: 10px;
+}
+
+.back-button {
+    text-align: center;
+    margin: 10px;
+}
+/* .back-button > a {} */

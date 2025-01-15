@@ -11,86 +11,58 @@
 <body>
     <header class="header-area">
         <div class="top_head">
-            <img class="app_icon" src="{% static 'img/App_icon.png' %}"><h1 id="app_name">StudyNET</h1>
-          <a href="{%url 'view_profile'%}">
+          <img class="app_icon" src="{% static 'img/App_icon.png' %}"><h1 id="app_name">StudyNET</h1>
+          <a href="{% url 'view_profile' %}">
             <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="Icon">
           </a>
         </div>
-  
-          <div class="tab-container">
-            <!--urlのあとはその機能のurls.pyで飛びたいページのパスのnameを書く-->
-            <a href="{% url 'priv'%}" class="topbutton">学習記録</a>
-            <a href="{% url 'timeline'%}" class="topbutton">タイムライン</a>
-            <a href="{% url 'task_list' %}" class="topbutton">やること</a>
-            <button class="topbutton">カウントダウン</button>
+        <div class="tab-container">
+          <a href="{% url 'priv' %}" class="topbutton">学習記録</a>
+          <a href="{% url 'timeline' %}" class="topbutton">タイムライン</a>
+          <a href="{% url 'task_list' %}" class="topbutton">やること</a>
+          <button class="topbutton">カウントダウン</button>
         </div>
-      </header>
-
-<!-- <p>{{subject1}}</p> -->
+    </header>
     <div class="record-wrap">
         <div class="subject-box">
-            <form method="POST" action="">
-                {% csrf_token %}
-                <!-- プルダウンリスト -->
-                <select class="subject-select" name="languages" id="lang">
-                    <option class="select-list" value="select">科目を選択</option>
-                    {% for subject in subject_list %}
-                    <option class="select-list" value="{{ subject }}">{{subject}}</option>
-                    {% endfor %}
-                </select>
-                <div class="add-area">
-                    <input type="text" name="new_subject" placeholder="新しい科目を登録">
-                    <input type="submit" value="登録">
-                </div>
-                {% if error_message %}
-                <div class="error">{{ error_message }}</div>
-                {% endif %}
-            </form>
-            <div class="delete-area">
-                <details class="accordion-003 inner">
-                    <summary>登録した科目を削除する</summary>
-                        <!-- 科目一覧と削除ボタン -->
-                        {% for subject in subject_list %}
-                        <p class="delete-item">
-                            {{ subject }}
-                            <form method="POST" action="{% url 'delete_subject' %}" class="delete-form">
-                                {% csrf_token %}
-                                <input type="hidden" name="subject_name" value="{{ subject }}">
-                                <button type="button" class="delete-button">削除</button>
-                                <hr>
-                            </form>
-                        </p>
-                        {% endfor %}
-                </details>
-            </div>
+            <select class="subject-select" name="languages" id="lang">
+                <option class="select-list" value="select">科目を選択</option>
+                <option class="select-list" value="CS概論">CS概論</option>
+                <option class="select-list" value="CS演習">CS演習</option>
+                <option class="select-list" value="数学">数学</option>
+                <option class="select-list" value="データベース">データベース</option>
+                <option class="select-list" value="ソフトウェア演習">ソフトウェア演習</option>
+                <option class="select-list" value="UXデザイン">UXデザイン</option>
+                <option class="select-list" value="UX演習">UX演習</option>
+                <option class="select-list" value="データ・マイニング論">データ・マイニング論</option>
+                <option class="select-list" value="データサイエンス演習">データサイエンス演習</option>
+                <option class="select-list" value="ICT社会応用論">ICT社会応用論</option>
+                <option class="select-list" value="ICT社会応用演習">ICT社会応用演習</option>
+            </select>
         </div>
-        <div id="stopwatch-container">
-            <div id="time">00:00:00</div>
-            <div id="buttons">
-              <input id="start" type="button" value="start">
-              <input id="stop" type="button" value="stop">
-              <input id="reset" type="button" value="reset">
-            </div>
-        </div>
-        <div class="comment-box">
-            <h3 class="comment-title">コメント</h3>
-            <form class="comment-form-area" action="{% url 'form' %}" method="POST" name="form">
-                {% csrf_token %}
-                <textarea class="comment-input" type="text" name="content" placeholder="(例: 完全に理解できた！)"></textarea>
-                <input type="hidden" name="selected_subject" id="selected-subject" value="">
-                <input type="hidden" name="elapsed_time" id="elapsed-time" value="">
-            
-                <div class="comment-submit-container">
-                    <input class="comment-submit" type="submit" value="記録する">
+        <div class="record-bottom-wrap">
+            <div id="stopwatch-container">
+                <div id="time">00:00:00</div>
+                <div id="buttons">
+                    <input id="start" type="button" value="start">
+                    <input id="stop" type="button" value="stop">
+                    <input id="reset" type="button" value="reset">
                 </div>
-            </form>
-            
+            </div>
+            <div class="comment-box">
+                <h3 class="comment-title">コメント</h3>
+                <form class="comment-form-area" action="{% url 'form' %}" method="POST" name="form">
+                    {% csrf_token %}
+                    <textarea class="comment-input" name="content" placeholder="(例: 完全に理解できた！)"></textarea>
+                    <input type="hidden" name="selected_subject" id="selected-subject" value="">
+                    <input type="hidden" name="elapsed_time" id="elapsed-time" value="">
+                    <div class="comment-submit-container">
+                        <input class="comment-submit" type="submit" value="記録する">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>    
     <script src="{% static 'record/js/index.js' %}"></script>
-    <!-- subject_listの内容をデバッグ表示 -->
-<div>
-</div>
-
 </body>
 </html>

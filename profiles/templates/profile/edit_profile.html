@@ -5,12 +5,31 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-    <title>profile</title>
+    <title>profile-edit</title>
   </head>
+
   <body>
+    <header class="header-area">
+      <div class="top_head">
+        <img class="app_icon" src="{% static 'img/App_icon.png' %}"><h1 id="app_name">StudyNET</h1>
+        <a href="{% url 'view_profile' %}">
+          <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="Icon">
+        </a>
+      </div>
+
+      <div class="tab-container">
+        <a href="{% url 'priv' %}" class="topbutton">学習記録</a>
+        <a href="{% url 'timeline' %}" class="topbutton">タイムライン</a>
+        <button class="topbutton">やること</button>
+        <button class="topbutton">カウントダウン</button>
+      </div>
+    </header>
+
     {% block content %}
-    <h2>{{ user.username }}さんのプロフィールを編集</h2>
+    <div class="profile-edit">
+    <h1>{{ user.username }}さんのプロフィールを編集</h1>
     
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
@@ -19,5 +38,6 @@
     </form>
     <a href="{% url 'view_profile' %}">戻る</a>
     {% endblock %}
+    </div>
   </body>
 </html>

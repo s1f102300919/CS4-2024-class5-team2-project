@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.views.generic import ListView
+from django.views import View
 from .models import Task
 from .forms import TaskForm
 
@@ -26,3 +27,14 @@ class TaskList(ListView):
         #2コンテキストのフォームをセット
         context['form'] = TaskForm()
         return context
+    
+class TaskCreate(View):
+    #送信されたフォーム内容のデータベース処理
+    def post(self, request):
+        #1送信データのチェック
+        form = TaskForm(request.POST)
+        #2問題がなければ登録
+        if form.is_valid():
+            task = form.save()
+        #3タスク一覧へ遷移
+        return redirect('task_list')

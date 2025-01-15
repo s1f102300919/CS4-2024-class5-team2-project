@@ -3,6 +3,7 @@ from django.views.generic import ListView, UpdateView, DeleteView
 from django.views import View
 from django.urls import reverse_lazy
 from django.forms import DateInput
+from django.http import JsonResponse
 from .models import Task
 from .forms import TaskForm
 
@@ -58,3 +59,22 @@ class TaskUpdate(UpdateView):
 class TaskDelete(DeleteView):
     model = Task
     success_url = reverse_lazy('task_list')
+
+#1.完了処理を関数ベースで作成
+def complete_task(request, pk):
+    #2.DBからタスクを取得
+    task = Task.objects.get(pk=pk)
+    #3.完了、未完了を入れ替え
+    if task.is_completed:
+        task.is_completed = False
+    else:
+        task.is_completed = True
+    #4.DB保存
+    task.save()
+    #5.Ajax送信かどうかで分岐
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        data = {
+            'is_completed': task.is_completed
+        }
+    #6.JSON形式でデータ送信する
+    return JsonResponse(data)

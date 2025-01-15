@@ -1,14 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>削除確認</title>
 </head>
 <body>
     <h1>本当に削除してもよろしいですか？</h1>
+    <div class="post_info">
     <p>科目名: {{ post.subject }}</p>
-    <p>時間: {{ post.time }}</p>
     <p>コメント: {{ post.comment }}</p>
 
     <form method="POST" action="{%url 'delete_post' post.id%}">
@@ -17,5 +19,6 @@
     </form>
 
     <a href="{% url 'timeline' %}">キャンセル</a>
+    </div>
 </body>
 </html>

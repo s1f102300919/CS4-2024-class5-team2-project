@@ -11,7 +11,7 @@
 <body>
     <header class="header-area">
         <div class="top_head">
-          <h1 id="app_name">アプリ名</h1>
+            <img class="app_icon" src="{% static 'img/App_icon.png' %}"><h1 id="app_name">StudyNET</h1>
           <a href="{%url 'view_profile'%}">
             <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="Icon">
           </a>

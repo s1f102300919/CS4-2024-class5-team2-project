@@ -4,9 +4,8 @@ from .models import Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['subject', 'time', 'comment']
-    
-    time = forms.CharField(max_length=5, widget=forms.TextInput(attrs={'placeholder': 'HH:MM'}))
+        fields = ['subject', 'comment']
+
     
     def clean_time(self):
         time_str = self.cleaned_data['time']

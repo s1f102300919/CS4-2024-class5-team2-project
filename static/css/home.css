@@ -3,6 +3,13 @@ body {
     margin: 0; /* コンテンツ全体の余白をリセット */
     padding-top: 50px; /* ヘッダーの高さ分の余白を追加 */
 }
+
+h1{
+    position: relative;
+    left: 30px;
+    top:-50px
+}
+
 .post{
     background-color: aquamarine;
     padding: 10px;
@@ -39,6 +46,10 @@ body {
     display: flex;
     padding-top: 4x;
     align-items: center;
+    position: relative;
+    top: 4px;
+    position: relative;
+    left: 10px;
 }
 
 .header-area {
@@ -88,4 +99,17 @@ body {
         margin-top: 10px;
         font-size: 16px;
     }
+}
+
+.post_info{
+    position: relative;
+    left: 20px;
+    bottom: 60px;
+}
+
+.app_icon{
+    height: 65px;
+    width: 65px;
+    position: relative;
+    left: 15px;
 }

@@ -1,14 +1,20 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/login_home.css' %}">
 </head>
 <body>
+    <div class="login-content">
     <h2>アカウント作成</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Register</button>
-    </form>    
+    </form>
+    <p><a href="{% url 'home' %}">最初のページに戻る</a></p>
+</div>
 </body>
 </html>

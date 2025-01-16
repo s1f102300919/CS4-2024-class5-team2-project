@@ -27,3 +27,8 @@ button {
     color: aliceblue;
     text-decoration: none;
 }
+
+.login-content{
+    position: relative;
+    left: 100px;
+}

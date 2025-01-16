@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'record/css/test.css' %}">
+    <script src="{% static 'record/js/test.js' %}"></script>
+    <title>学習記録削除確認</title>
+</head>
+<body>
+    <header class="header-area">
+        <div class="top_head">
+            <img class="app_icon" src="{% static 'img/App_icon.png' %}"><h1 id="app_name">StudyNET</h1>
+            <a href="{% url 'view_profile' %}">
+                <img src="{{ user.userprofile.avatar.url }}" alt="User Avatar" class="Icon">
+            </a>
+        </div>
+        <div class="tab-container">
+            <a href="{% url 'priv' %}" class="topbutton">学習記録</a>
+            <a href="{% url 'timeline' %}" class="topbutton">タイムライン</a>
+            <a href="{% url 'task_list' %}" class="topbutton">やること</a>
+            <button class="topbutton">カウントダウン</button>
+        </div>
+    </header>
+
+    <div class="timeline-area">
+        <h2>この学習記録を削除しますか？</h2>
+        <p>科目: {{ record.subject }}</p>  <!-- 修正: record.subject.name → record.subject -->
+        <p>コメント: {{ record.comment }}</p>
+        <p>時間: {{ record.elapsed_time }}</p>
+        <form method="POST" action="{% url 'delete_post' record.id %}">
+            {% csrf_token %}
+            <button type="submit">削除</button>
+        </form>
+
+        <div class="back-button">
+            <button>
+                <a href="{% url 'priv' %}">キャンセル</a>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

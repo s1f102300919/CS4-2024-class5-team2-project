@@ -1,29 +1,49 @@
 body {
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
-h1 {
-    margin: 10px auto;
-    text-align: center;
-}
 .timeline-area {
     margin-top: 150px;
 }
 .timeline {
-    width: 70%;
     margin: 10px auto;
+    width: 70%;
 }
 .timeline-item {
-    border: 1px solid black;
-    margin: 10px 0;
+    background-color: hsla(234, 12%, 45%, 0.741);
+    border: rgb(205, 205, 205) 1px solid;
+    box-shadow: #aaa 2px 2px 3px;
+    border-radius: 1rem;
+    margin: 20px auto;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: #6b6b6b 1px 1px 3px;
 }
-p {
+.timeline-time {
+    margin: 5px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.timeline-content {
     margin: 10px;
+    font-size: 20px;
+    padding: 10px;
+}
+.emp {
+    font-weight: bold;
 }
 
-.back-button {
-    text-align: center;
-    margin: 10px;
+@media (max-width:768px) {
+    .timeline {
+        width: 90%; /* 幅を90%に調整 */
+        margin: 0 auto; /* 中央揃え */
+    }
+    .timeline-time {
+        font-size: 18px;
+    }
+    .timeline-content {
+        font-size: 16px;
+    }
 }
-/* .back-button > a {} */

@@ -23,4 +23,8 @@ def form(request):
             comment=content,
             elapsed_time=elapsed_time
         )
-    return render(request, "record/form.html", {"records": StudyRecord.objects.all()})
+    
+    # 新しい順に並べ替え
+    records = StudyRecord.objects.all().order_by('-created_at')
+    
+    return render(request, "record/form.html", {"records": records})

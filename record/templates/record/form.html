@@ -24,22 +24,17 @@
           <button class="topbutton">カウントダウン</button>
         </div>
     </header>
-
     <div class="timeline-area">
         <div class="timeline">
             {% for record in records %}
             <div class="timeline-item">
-                <p>登録日時: {{ record.created_at|date:"Y年m月d日 H:i" }}</p>
-                <p>科目: {{ record.subject }}</p>
-                <p>コメント: {{ record.comment }}</p>
-                <p>時間: {{ record.elapsed_time }}</p>
+                <p class="timeline-time">{{ record.created_at|date:"Y年m月d日 H:i" }}</p>
+                <hr>
+                <p class="timeline-content"><span class="emp">科目</span>: {{ record.subject }}</p>
+                <p class="timeline-content"><span class="emp">コメント</span>: {{ record.comment }}</p>
+                <p class="timeline-content"><span class="emp">学習時間</span>: {{ record.elapsed_time }}</p>
             </div>
             {% endfor %}
-        </div>
-        <div class="back-button">
-            <button>
-                <a href="{% url 'priv' %}">戻る</a>
-            </button>
         </div>
     </div>
 </body>

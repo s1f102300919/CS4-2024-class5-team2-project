@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+}
+
+.login-box {
+    text-align: center;
+    margin: 10px auto;
+    margin-top: 50px;
+}
+
+/* .app-title {} */
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+button {
+    background-color: rgb(223, 82, 82);
+    border: white solid 1px;
+    padding: 10px 20px;
+}
+
+.login-item {
+    color: aliceblue;
+    text-decoration: none;
+}

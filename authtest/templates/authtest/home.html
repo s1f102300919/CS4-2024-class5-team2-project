@@ -1,19 +1,31 @@
-<html lang="ja"><head><meta charset="utf-8"></head>
+{% load static %}
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/login_home.css' %}">
+  </head>
   <body>
-    <h1>ログイン</h1>
+    <div class="login-box">
+      <div class="app-title">
+        <img class="app_icon title-item" src="{% static 'img/App_icon.png' %}">
+        <h1 class="title-item">StudyNET</h1>
+      </div>
+      <h2>ログイン</h2>
 
-    {% if user.is_authenticated %}
-    <p>{{ user.username }}さん！こんにちは</p>
-    <form method="post" action="{% url 'logout' %}">
-      {% csrf_token %}
-      <button type="submit">ログアウト</button>
-    </form>
-    <hr>
-    <p><a href="{% url 'priv' %}">アプリへ移動</a></p>
-    {% else %}
-    <p>ログインしてください</p>
-    <p><a href="{% url 'login' %}">ログイン</a></p>
-    <p><a href="{% url 'register'%}">アカウント作成</a></p>
-    {% endif %}
+      {% if user.is_authenticated %}
+      <p>{{ user.username }}さん！こんにちは</p>
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">ログアウト</button>
+      </form>
+      <hr>
+      <p><a href="{% url 'priv' %}">アプリへ移動</a></p>
+      {% else %}
+      <p>ログインしてください</p>
+      <button><a class="login-item" href="{% url 'login' %}">ログイン</a></button>
+      <p>または</p>
+      <button><a class="login-item" href="{% url 'register'%}">アカウント作成</a></button>
+      {% endif %}
+    </div>
 </body>
 </html>

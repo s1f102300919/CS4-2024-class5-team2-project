@@ -68,6 +68,15 @@ h1{
     border-radius: 0.5rem;
     display: flex;
 }
+.tab-container > a {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+}
+.tab-container > a:hover {
+    background-color: #5ab1c9e6;
+}
 
 .Icon {
     width: 60px;
